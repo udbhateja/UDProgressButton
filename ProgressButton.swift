@@ -3,7 +3,7 @@
 //  Tokr
 //
 //  Created by Uday on 01/03/19.
-//  Copyright © 2019 Zapbuild. All rights reserved.
+//  Copyright © 2019 Uday. All rights reserved.
 //
 
 import Foundation
@@ -52,27 +52,26 @@ class ProgressButton: UIButton {
         bringSubviewToFront(activityIndicator)
     }
     
+     private func set(enabled: Bool) {
+        isUserInteractionEnabled = enabled
+        backgroundColor = backgroundColor?.withAlphaComponent(enabled ? 1.0 : 0.5)
+    }
+    
     //MARK:- Public functions
-    func startAnimating() {
+    public func startAnimating() {
         activityIndicator.frame = bounds
         buttonText = title(for: .normal)
         setTitle("", for: .normal)
         
         activityIndicator.startAnimating()
-        isUserInteractionEnabled = false
+        set(enabled: false)
     }
     
-    func stopAnimating() {
+    public func stopAnimating() {
         setTitle(buttonText ?? "", for: .normal)
         activityIndicator.stopAnimating()
-        isUserInteractionEnabled = true
-    }
-    
-    func set(enabled: Bool) {
-        isUserInteractionEnabled = enabled
-        backgroundColor = backgroundColor?.withAlphaComponent(enabled ? 1.0 : 0.5)
-    }
-    
+        set(enabled: true)
+    } 
 }
 
 
