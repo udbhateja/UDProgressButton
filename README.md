@@ -22,7 +22,7 @@ button_Login.style = .gray
 button_Login.color = .red
 ```
 
-###
+## Usage
 Call loader as: 
 ```
 button_Login.startAnimating()
