@@ -11,7 +11,7 @@ Set the class of your button to ProgressButton.
 - Change loader style using *style* property. Styles provided are: white, gray & whiteLarge.
 
 ## Programatically
-Initialze object of ProgressButtonjust like UIButton
+Initialze object of ProgressButton just like UIButton.
 ```
 eg. let button_Login = ProgressButton(frame: CGRect(x:50,y:50,width:200,height:40))
 ```
@@ -21,6 +21,15 @@ Loader Style & Color can be changed easily
 button_Login.style = .gray
 button_Login.color = .red
 ```
+
+###
+Call loader as: 
+```
+button_Login.startAnimating()
+button_Login.stopAnimating()
+```
+
+
 
 ##
 Thanks for using the widget! 🙏 
