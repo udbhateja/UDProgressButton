@@ -1,9 +1,11 @@
-# progressButton
-A UIButton subclass that shows loader(UIActivityIndicator) in the bounds of Button for asynchronus tasks like API etc.
+# ProgressButton
+A UIButton subclass that shows loader(UIActivityIndicator) within the bounds to perform some async tasks.
+
 
 Works with code and storyboard.
 
-**Storyboard** 
+Alt-H1 Storyboard
+
 Set the class of your button to ProgressButton.
 - Change color of loader using the "*progressColor*" property. By default progress color is White.
 - Change loader style using *style* property. Styles provided are: white, gray & whiteLarge.
