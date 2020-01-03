@@ -1,15 +1,13 @@
 //
-//  ProgressButton.swift
-//  Tokr
+//  UDProgressButton.swift
 //
 //  Created by Uday on 01/03/19.
 //  Copyright © 2019 Uday. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class ProgressButton: UIButton {
+class UDProgressButton: UIButton {
     
     //MARK:- Properties
     @IBInspectable var progressColor: UIColor = .white {

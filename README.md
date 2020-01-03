@@ -1,35 +1,51 @@
-# ProgressButton
-A UIButton subclass that shows loader(UIActivityIndicator) within the bounds to perform some async tasks.
+# UDProgress Button
+A simple UIButton subclass with inbuilt activity indicator to show loading or task in progress.
 
+![](login.gif)
 
-Works with code and storyboard.
+## Installation
+Drag and drop the file into your project folder.
+Make sure **Copy Files** is checked and file is added to target.
 
-## Storyboard
+## About
 
-Set the class of your button to ProgressButton.
-- Change color of loader using the "*progressColor*" property. By default progress color is White.
-- Change loader style using *style* property. Styles provided are: white, gray & whiteLarge.
+##### Properties
+- progressColor - Determines the color of activity indicator. Default is white.
+Can be changed from storyboard. Property is IBInspectable.
+- style - enum representing UIActivityIndicatorStyle. Default is .white
+- isAnimating - Returns true|false. True when inidicator is animating.
 
-## Programatically
-Initialze object of ProgressButton just like UIButton.
-```
-eg. let button_Login = ProgressButton(frame: CGRect(x:50,y:50,width:200,height:40))
-```
+##### Methods
+- startAnimating() - Disables user interaction and shows activity indicator.
+- stopAnimating() - Enables user interaction and hides activity indicator.
+- set(enabled: Bool) - Enables the user interaction of button and changes the alpha but don't show/hide activity indicator.
 
-Loader Style & Color can be changed easily
-```
-button_Login.style = .gray
-button_Login.color = .red
-```
+*Keep in mind to show/hide indicator on the main thread.*
+> Note: When loader is animating, alpha of button is set to 0.5 to give a fade out effect.
 
 ## Usage
-Call loader as: 
-```
-button_Login.startAnimating()
-button_Login.stopAnimating()
-```
 
+##### Using Storyboard
+Change the class of button to **UDProgressButton** in Identity inspector.
+Create **@IBOultet** and access properties and methods.
 
+##### Using code
+```
+let frame = CGRect(x: 0, y:0, width: 175.0, height: 50.0)
+let button = UDProgressButton(frame: frame)
+button.progressColor = .red
+```
+```
+button.startAnimating()
+APIManager.login(email: "xyz@zap.com") {
+  [weak self] (success) in
+  if success {
+    DispatchQueue.main.async {
+      self?.button.stopAnimating()
+    }
+  }
+}
+```
 
 ##
-Thanks for using the widget! 🙏 
+Thanks for using the widget 🙏
